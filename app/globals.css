@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0d0b;
+  --surface: #151a15;
+
+  --text: #f5f2e8;
+  --texthover: #c8c3b5;
+
+  --green: #355e3b;
+  --green-light: #6b8f4e;
+  --green-dark: #1f3a24;
+
+  --brown: #6b4f35;
+  --gold: #c8a951;
+
+  --nav-footer: #050505;
 }
 
 
@@ -12,9 +24,305 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  background: var(--background);
+  background: linear-gradient(
+    135deg,
+    var(--green-light),
+    var(--green),
+    var(--green-dark)
+  );
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* #region text */
+
+/* #region hero */
+
+
+
+.hero {
+  min-height: 80vh;
+
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 4rem 2rem;
+}
+
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 1rem;
+}
+
+
+.hero p {
+  max-width: 700px;
+  font-size: 1.4rem;
+}
+/* #endregion */
+
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* #endregion */
+/* #region Nav */
+.siteHeader {
+  background: var(--background);
+  border-bottom: 4px solid var(--gold);
+  padding: 1rem 2rem;
+}
+
+.siteNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandLink {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.brandLink:hover {
+  color: var(--texthover);
+  transform: scale(1.05);
+}
+
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+.navLink {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.1rem;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.navLink:hover {
+  color: var(--texthover);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* #endregion */
+/* #region footer */
+.siteFooter {
+  background: #05050a;
+  border-top: 1px solid rgba(255,255,255,0.1);
+
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+
+.footerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+
+.footerContent p {
+  color: var(--text);
+  margin: 0;
+}
+
+
+.footerLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+
+.footerLinks a {
+  color: var(--text);
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.footerLinks a:hover {
+  color: var(--texthover);
+  transform: translateY(-2px);
+}
+
+
+@media (max-width: 700px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* #endregion */
+
+
+
+/* #region Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* Purple → Blue main action */
+.button-primary {
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #2563eb
+  );
+
+  color: white;
+  border: none;
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+}
+
+
+/* Dark secondary */
+.button-secondary {
+  background: #111827;
+  color: white;
+
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.button-secondary:hover {
+  border-color: #8b5cf6;
+}
+
+
+/* White outline */
+.button-outline {
+  background: transparent;
+  color: white;
+
+  border: 1px solid white;
+}
+
+.button-outline:hover {
+  background: white;
+  color: black;
+}
+
+
+/* AI / magical glow */
+.button-glow {
+  background: transparent;
+
+  color: #c084fc;
+  border: 2px solid #8b5cf6;
+
+  box-shadow:
+    0 0 15px rgba(139,92,246,0.4);
+}
+
+.button-glow:hover {
+  background: #8b5cf6;
+  color: white;
+
+  box-shadow:
+    0 0 30px rgba(139,92,246,0.7);
+}
+/* #endregion */
+
+
+.goldShimmer {
+  background: linear-gradient(
+    90deg,
+    #8f7628,
+    #f5d76e,
+    #c8a951,
+    #fff1a8,
+    #8f7628
+  );
+
+  background-size: 200% auto;
+
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  animation: shimmer 3s linear infinite;
+}
+
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
 }
